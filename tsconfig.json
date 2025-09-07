@@ -6,9 +6,13 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "rootDir": "src",
     "outDir": "dist",
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
   },
-  "include": ["src", "test"]
+  "include": ["src"]
 }
