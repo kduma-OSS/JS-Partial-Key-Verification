@@ -56,7 +56,7 @@ describe("CodeGenerator (TS output)", () => {
         const code = gen.toString();
 
         // Signature (no username)
-        expect(code).toContain("private static validateKey(key: string): boolean");
+        expect(code).toContain("function validateKey(key: string): boolean");
 
         // Blacklist block
         expect(code).toContain(
@@ -98,7 +98,7 @@ describe("CodeGenerator (TS output)", () => {
 
         // Signature (with username)
         expect(code).toContain(
-            "private static validateKey(userName: string, key: string): boolean"
+            "function validateKey(userName: string, key: string): boolean"
         );
 
         // Validator instance creation

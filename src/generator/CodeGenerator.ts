@@ -29,11 +29,11 @@ export class CodeGenerator {
     }
 
     public setVerifiedKeys(keys: Iterable<number>): void {
-        this.verifiedKeys = Array.from(keys).map(k => k | 0);
+        this.verifiedKeys = Array.from(keys).map((k) => k | 0);
     }
 
     public setBlacklistedSerials(serials: Iterable<number>): void {
-        this.blacklistedSerials = Array.from(serials).map(s => s >>> 0);
+        this.blacklistedSerials = Array.from(serials).map((s) => s >>> 0);
     }
 
     public getBlacklistedSerials(): number[] {
@@ -57,7 +57,9 @@ export class CodeGenerator {
         // Collect imports
         const imports = new Set<string>();
         imports.add("PartialKeyValidator");
-        imports.add("Fnv1a"); // always used if validateUsername=true
+        if (this.validateUsername) {
+            imports.add("Fnv1a"); // only needed if username validation
+        }
 
         imports.add(checksumClass);
         for (const keyIndex of this.verifiedKeys) {
@@ -66,16 +68,13 @@ export class CodeGenerator {
             }
         }
 
-        // Header with imports
+        // Header with combined import
         code += `// Auto-generated validation snippet${nl}`;
-        imports.forEach(imp => {
-            code += `import { ${imp} } from "../";${nl}`;
-        });
-        code += nl;
+        code += `import { ${Array.from(imports).sort().join(", ")} } from "pkv.js";${nl}${nl}`;
 
         // Method signature
         const sigParams = this.validateUsername ? "userName: string, key: string" : "key: string";
-        code += `private static validateKey(${sigParams}): boolean {${nl}`;
+        code += `function validateKey(${sigParams}): boolean {${nl}`;
 
         if (this.validateUsername) {
             code += `${tab}const validator = new PartialKeyValidator(new Fnv1a());${nl}${nl}`;

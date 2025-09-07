@@ -1,6 +1,6 @@
 # Partial Key Verification Library for TS/JS
 
-[![Tests](https://img.shields.io/github/actions/workflow/status/kduma-OSS/JS-Partial-Key-Verification/node.js.yml?branch=master&label=build&style=flat-square)](https://github.com/kduma-OSS/JS-Partial-Key-Verification/actions/workflows/run-tests.yml)
+[![Tests](https://img.shields.io/github/actions/workflow/status/kduma-OSS/JS-Partial-Key-Verification/node.js.yml?branch=master&label=build&style=flat-square)](https://github.com/kduma-OSS/JS-Partial-Key-Verification/actions/workflows/node.js.yml)
 
 This is a port of my other C# library [Partial Key Verification Library for Compact Framework](https://opensource.duma.sh/libraries/net/partial-key-verification) into a JavaScript/TypeScript package.
 

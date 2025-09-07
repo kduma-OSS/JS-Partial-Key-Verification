@@ -1,6 +1,6 @@
 {
   "name": "pkv.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "type": "module",
   "description": "Partial Key Verification Library for JS/TS. Serial number generation scheme for offline key validation.",
