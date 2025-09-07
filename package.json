@@ -1,0 +1,50 @@
+{
+  "name": "pkv.js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "Partial Key Verification Library for JS/TS. Serial number generation scheme for offline key validation.",
+  "keywords": ["pkv", "partial-key-verification", "verification", "typescript", "javascript", "library"],
+  "author":"Krystian Duma",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kduma-OSS/JS-Partial-Key-Verification.git"
+  },
+  "homepage": "https://opensource.duma.sh/libraries/js/partial-key-verification",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "main": "./dist/pkv.es.js",
+  "module": "./dist/pkv.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pkv.es.js",
+      "default": "./dist/pkv.es.js"
+    }
+  },
+  "unpkg": "./dist/pkv.umd.js",
+  "jsdelivr": "./dist/pkv.umd.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5",
+    "jsdom": "^26.1.0"
+  }
+}
